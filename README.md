@@ -1,4 +1,4 @@
-### Qt 5 Core
+### Qt 5 Core Advanced
 
 Hi everyone :v:
 
