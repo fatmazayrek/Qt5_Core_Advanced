@@ -3,6 +3,9 @@
 MyThread::MyThread(QObject *parent)
     : QThread{parent}
 {
+    //Let's make some implementations:)
+//    connect(this, &QThread::finished, this, &MyThread::finished);
+    connect(this, &MyThread::finished2, this, &MyThread::finished);
 
 }
 
@@ -10,6 +13,11 @@ void MyThread::quit()
 {
     ok = false;
     QThread::quit();
+}
+
+void MyThread::finished()
+{
+    qDebug() << "YES!!, i finished";
 }
 
 void MyThread::run()
@@ -32,14 +40,6 @@ void MyThread::run()
     qDebug() << "Finished";
 
     exec();
-}
 
-/* Output will be:
-        Current thread with id:  MyThread(0x601e77f6b8) 0
-        Current thread with id:  MyThread(0x601e77f6b8) 1
-        Current thread with id:  MyThread(0x601e77f6b8) 2
-        Current thread with id:  MyThread(0x601e77f6b8) 3
-        Current thread with id:  MyThread(0x601e77f6b8) 4
-        Timeout stopping this thread QThread(0x16b3cb51bc0)
-        Finished
-*/
+    emit finished2();
+}

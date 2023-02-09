@@ -12,9 +12,11 @@ public:
     explicit MyThread(QObject *parent = nullptr);
 
 signals:
+    void finished2();
 
 public slots:
     void quit();
+    void finished();
 
 protected:
     void run();
