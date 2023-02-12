@@ -31,3 +31,14 @@ int main(int argc, char *argv[])
 
     return a.exec();
 }
+
+/* Output will be: 
+        Current thread with id:  MyThread(0xcfae33f698) 0
+        Current thread with id:  MyThread(0xcfae33f698) 1
+        Current thread with id:  MyThread(0xcfae33f698) 2
+        Current thread with id:  MyThread(0xcfae33f698) 3
+        Current thread with id:  MyThread(0xcfae33f698) 4
+        Timeout stopping this thread QThread(0x2c7e8670170)
+        Finished
+        YES!!, i finished
+*/
